@@ -20,6 +20,8 @@ class Punto(val id:String){
             return sqrt((Math.pow(vector.x.toDouble(), 2.0) - Math.pow(vector.y.toDouble(), 2.0)))
         }
 
+        //Realizamos una partición. El primer elemento del par será una lista de puntos cuya coordenada Y sea positiva (o cero).
+        //La segunda lista contendrá los puntos cuya coordenada Y sea negativa
         fun localizacionGeograficaNS(arrayPuntos:Array<Punto>): Map<String, List<Punto>> {
             val(norte, sur) = arrayPuntos.partition{it.y >=0}
             return mapOf("Norte" to norte, "Sur" to sur)
